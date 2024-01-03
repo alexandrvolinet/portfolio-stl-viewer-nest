@@ -1,29 +1,51 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
+export interface SafeUser {
+  name: string;
+  surname: string;
+  email: string;
+  admin: boolean;
+}
+
 @Schema({ timestamps: true })
 export class User {
   @Prop({ required: true })
   name: string;
 
-  @Prop({ required: true })
+  @Prop()
   surname: string;
 
-  @Prop({ required: true, unique: true })
+  @Prop({ unique: true })
   email: string;
 
-  @Prop({ required: true })
+  @Prop()
   password: string;
 
-  @Prop({ required: true, default: false })
+  @Prop({ default: false })
   admin: boolean;
 
-  @Prop({ required: true, default: false })
+  @Prop({ default: false })
   agreement: boolean;
 
   //change to false
   @Prop({ default: true })
   active: boolean;
+
+  @Prop({ unique: true, sparse: true })
+  googleId: string;
+
+  @Prop()
+  telnumber: string;
+
+  @Prop()
+  adress: string;
+
+  @Prop()
+  firm: string;
+
+  @Prop()
+  threedobjname: string;
 
   @Prop()
   emailConfirmationToken: string;
