@@ -4,7 +4,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { RouterModule } from '@nestjs/core';
 import { AdminModule } from './admin/admin.module';
 import { UserModule } from './user/user.module';
+import { MessageModule } from './contactmessage/message.module';
 import { User, UserSchema } from './user/user.schema';
+import { Message, MessageSchema } from './contactmessage/contactmessage.schema';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
@@ -12,6 +14,8 @@ dotenv.config();
   imports: [
     MongooseModule.forRoot(process.env.MONGO_URI),
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
+    MongooseModule.forFeature([{ name: Message.name, schema: MessageSchema }]),
+    MessageModule,
     UserModule,
     AdminModule,
     GoogleuserModule,
