@@ -7,6 +7,9 @@ export class Message extends Document {
   name: string;
 
   @Prop({ required: true })
+  surname: string;
+
+  @Prop({ required: true })
   email: string;
 
   @Prop({ required: true })

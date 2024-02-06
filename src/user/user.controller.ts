@@ -57,11 +57,6 @@ export class UserAuthController {
     return this.userAuthService.getUserById(req.user.userId);
   }
 
-  @Post('google-login')
-  async googleAuth(@Body() googleUserDto: any) {
-    return this.userAuthService.googleLogin(googleUserDto);
-  }
-
   @Put('updateUser')
   @UseGuards(Guard)
   async updateUser(

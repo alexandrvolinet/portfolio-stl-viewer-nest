@@ -1,12 +1,20 @@
 import { IsEmail, IsNotEmpty, MaxLength } from 'class-validator';
 
 export class CreateMessageDto {
-  @IsNotEmpty()
-  @MaxLength(64)
-  readonly name: string;
-
   @IsEmail()
   @IsNotEmpty()
   @MaxLength(64)
-  readonly email: string;
+  email: string;
+
+  @IsNotEmpty()
+  @MaxLength(64)
+  name: string;
+
+  @IsNotEmpty()
+  @MaxLength(256)
+  subject: string;
+
+  @IsNotEmpty()
+  @MaxLength(512)
+  message: string;
 }

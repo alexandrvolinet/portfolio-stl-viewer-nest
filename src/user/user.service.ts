@@ -77,7 +77,7 @@ export class UserAuthService {
       }
     }
 
-    // Generate a JWT token or handle session here as per your auth logic
+    // Generate a JWT token or handle session here auth logic
     const payload = { userId: user._id, admin: user.admin };
     const token = this.jwtService.sign(payload);
 

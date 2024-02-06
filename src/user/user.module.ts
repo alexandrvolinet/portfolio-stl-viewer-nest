@@ -7,8 +7,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UserSchema } from './user.schema';
 import * as dotenv from 'dotenv';
 import { PassportModule } from '@nestjs/passport';
-import { GoogleStrategy } from '../googleuser/google.strategy'; // Adjust the path as necessary
-
+import { GoogleStrategy } from '../googleuser/google.strategy';
 dotenv.config();
 
 @Module({
@@ -22,6 +21,7 @@ dotenv.config();
   ],
   controllers: [UserAuthController],
   providers: [UserAuthService, GoogleStrategy],
+  exports: [UserAuthService],
 })
 export class UserModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
