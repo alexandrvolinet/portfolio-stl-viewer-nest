@@ -9,6 +9,8 @@ import { MessageModule } from './contactmessage/message.module';
 import { UserContactMessageModule } from './usercontactmessage/usercontactmessage.module';
 import { User, UserSchema } from './user/user.schema';
 import { Message, MessageSchema } from './contactmessage/contactmessage.schema';
+import { MaterialModule } from './material/material.module';
+import { ColorModule } from './color/color.module';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
@@ -23,6 +25,9 @@ dotenv.config();
     GoogleuserModule,
     UserContactMessageModule,
     OrderModule,
+    MaterialModule,
+    ColorModule,
+
     RouterModule.register([
       {
         path: 'admin', // prefix for admin user

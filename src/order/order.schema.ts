@@ -39,6 +39,12 @@ export class Order extends Document {
   @Prop({ required: true })
   fileName: string;
 
+  @Prop()
+  color: string;
+
+  @Prop()
+  quantity: number;
+
   // @Prop({ required: true })
   // stlFileUrl: string;
 }
